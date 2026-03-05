@@ -1,0 +1,2 @@
+# aiml-project
+PlantCare AI
