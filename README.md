@@ -67,23 +67,36 @@ Flask – Backend API
 
 HTML / CSS / JavaScript – User Interface\
 
-## Supported Crops & Disease Classes (38 Total)
+#### Supported Crops & Disease Classes (38)
 
 | Crop | Diseases |
 
 | Apple | Apple Scab, Black Rot, Cedar Apple Rust, Healthy |
+
 | Corn | Gray Leaf Spot, Common Rust, Northern Leaf Blight, Healthy |
+
 | Grape | Black Rot, Esca, Leaf Blight, Healthy |
+
 | Tomato | Bacterial Spot, Early Blight, Late Blight, Leaf Mold, Septoria, Spider Mites, Target Spot, Yellow Leaf Curl, Mosaic Virus, Healthy |
+
 | Potato | Early Blight, Late Blight, Healthy |
+
 | Pepper | Bacterial Spot, Healthy |
+
 | Peach | Bacterial Spot, Healthy |
+
 | Strawberry | Leaf Scorch, Healthy |
+
 | Cherry | Powdery Mildew, Healthy |
+
 | Blueberry | Healthy |
+
 | Orange | Citrus Greening (HLB) |
+
 | Soybean | Healthy |
+
 | Squash | Powdery Mildew |
+
 | Raspberry | Healthy |
 
 #### **System Architecture**
