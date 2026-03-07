@@ -1,15 +1,15 @@
-### **PlantCare AI**
+# **PlantCare AI**
 
 Intelligent Plant Disease Detection using Transfer Learning.
 
-#### **Overview**
+## **Overview**
 
 PlantCare AI is an intelligent deep learning system designed to identify plant diseases from leaf images.
 Using Transfer Learning with MobileNetV2, the system can analyze plant leaves and predict the disease class with high accuracy.
 Early detection of plant diseases is crucial for improving crop productivity and preventing agricultural losses. PlantCare AI aims to provide a simple and accessible AI-powered tool that helps farmers, researchers, and gardeners detect plant diseases quickly.
 This project demonstrates how Artificial Intelligence and Computer Vision can be applied to solve real-world agricultural problems.
 
-#### **Project Goals**
+## **Project Goals**
 
 The main objectives of PlantCare AI are:
 
@@ -23,7 +23,7 @@ The main objectives of PlantCare AI are:
 
 • Demonstrate real-world application of AI in agriculture
 
-#### **AI Model \& Approach :**
+## **AI Model \& Approach :**
 
 PlantCare AI uses a Convolutional Neural Network (CNN) with transfer learning.
 
@@ -45,7 +45,7 @@ Why MobileNetV2?
 
 Dataset → Image Preprocessing → Feature Extraction → Transfer Learning → Disease Classification
 
-#### **Technology Stack :**
+## **Technology Stack :**
 
 1.Programming :
 Python 
@@ -67,7 +67,7 @@ Flask – Backend API
 
 HTML / CSS / JavaScript – User Interface\
 
-#### Supported Crops & Disease Classes (38)
+## Supported Crops & Disease Classes (38)
 
 | Crop | Diseases |
 
@@ -99,7 +99,7 @@ HTML / CSS / JavaScript – User Interface\
 
 | Raspberry | Healthy |
 
-#### **System Architecture**
+## **System Architecture**
 
 User Uploads Leaf Image
 
@@ -119,7 +119,7 @@ Disease Prediction
 
 Result Display
 
-#### **How to Run the Project**
+## **How to Run the Project**
 
 1️⃣ Clone the Repository
 git clone https://github.com/Akankshap096/aiml-project
@@ -133,7 +133,7 @@ python backend/app.py
 4️⃣ Use the System
 Upload a plant leaf image and the system will predict the disease.
 
-#### **Team Members :**
+## **Team Members :**
 
 Akansha patel 
 
@@ -143,7 +143,20 @@ Nikhil tirgude
 
 Kumar Harshwardhan  
 
-#### **Real-World Impact**
+## Model Performance
+
+| Metric              | Value          |
+| ------------------- | -------------- |
+| Dataset Size        | 87,000+ images |
+| Plant Species       | 14             |
+| Disease Classes     | 38             |
+| Training Accuracy   | ~95%           |
+| Validation Accuracy | **96.6%**      |
+
+The model uses **MobileNetV2 transfer learning** to achieve high accuracy while keeping the model lightweight and efficient.
+
+
+## **Real-World Impact**
 
 PlantCare AI demonstrates how Artificial Intelligence can contribute to smart agriculture by enabling:
 
