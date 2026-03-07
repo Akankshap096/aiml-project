@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Results — PlantCare AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🌿 PlantCare <span>AI</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/upload" class="active">Detect Disease</a>
+    </div>
+    <a href="/upload" class="nav-cta">Try Now →</a>
+  </div>
+</nav>
+
+<section class="result-page">
+  <div class="result-page-inner">
+
+    <div class="result-back">
+      <a href="/upload">← Analyze Another</a>
+    </div>
+
+    <!-- Primary result -->
+    <div class="primary-result" id="primaryResult">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Leaf image + all predictions -->
+    <div class="result-columns">
+      <div class="result-img-col">
+        <div class="result-img-card">
+          <div class="ric-label">Uploaded Image</div>
+          <img id="resultLeafImg" src="" alt="Leaf"/>
+          <div id="demoBadge" style="display:none;" class="demo-inline-badge">⚡ Demo Mode</div>
+        </div>
+      </div>
+
+      <div class="result-predictions-col">
+        <div class="pred-label">Top 3 Predictions</div>
+        <div id="predictionsList"></div>
+
+        <div class="treatment-card" id="treatmentCard">
+          <div class="tc-head">
+            <span class="tc-icon">💊</span>
+            <span class="tc-title">Treatment Plan</span>
+          </div>
+          <ul class="tc-list" id="treatmentList"></ul>
+        </div>
+
+        <div class="spread-card" id="spreadCard">
+          <div class="sc-icon">⚠️</div>
+          <div>
+            <div class="sc-label">How it spreads</div>
+            <div class="sc-val" id="spreadVal"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="result-actions">
+      <a href="/upload" class="btn-primary">🔬 Analyze Another Plant</a>
+      <button class="btn-ghost" onclick="window.print()">🖨️ Print Report</button>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">🌿 PlantCare AI</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/upload">Detect</a>
+    </div>
+    <div class="footer-credit">Powered by TensorFlow · MobileNetV2 · Flask</div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>

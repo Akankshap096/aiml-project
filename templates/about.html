@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — PlantCare AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🌿 PlantCare <span>AI</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about" class="active">About</a>
+      <a href="/upload">Detect Disease</a>
+    </div>
+    <a href="/upload" class="nav-cta">Try Now →</a>
+  </div>
+</nav>
+
+<!-- ABOUT HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="section-label">ABOUT THE PROJECT</div>
+    <h1>PlantCare AI</h1>
+    <p>An advanced plant disease detection system built with Transfer Learning and MobileNetV2, achieving 96.6% validation accuracy on 87,000+ leaf images.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="about-overview">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">OVERVIEW</div>
+        <h2>What is PlantCare AI?</h2>
+        <p>PlantCare AI is an AI-powered plant pathology tool that uses deep learning to identify diseases from leaf images. It leverages MobileNetV2 — a lightweight yet powerful convolutional neural network — trained via Transfer Learning on the New Plant Diseases Dataset.</p>
+        <p>The system classifies leaves into 38 categories across 14 plant types, distinguishing between healthy plants and 37 distinct diseases — providing farmers, researchers, and gardeners with instant, accurate diagnoses.</p>
+      </div>
+      <div class="about-results-card">
+        <div class="result-highlight">
+          <div class="rh-num">96.6%</div>
+          <div class="rh-label">Peak Validation Accuracy</div>
+        </div>
+        <div class="training-curve">
+          <div class="curve-label">Training Progress</div>
+          <div class="curve-bars">
+            <div class="curve-col">
+              <div class="curve-bar" style="height:66%"><span>66%</span></div>
+              <div class="curve-ep">E1</div>
+            </div>
+            <div class="curve-col">
+              <div class="curve-bar" style="height:91%"><span>91%</span></div>
+              <div class="curve-ep">E2</div>
+            </div>
+            <div class="curve-col">
+              <div class="curve-bar" style="height:94%"><span>94%</span></div>
+              <div class="curve-ep">E3</div>
+            </div>
+            <div class="curve-col">
+              <div class="curve-bar" style="height:95.5%"><span>96%</span></div>
+              <div class="curve-ep">E4</div>
+            </div>
+            <div class="curve-col">
+              <div class="curve-bar highlight" style="height:96.6%"><span>96.6%</span></div>
+              <div class="curve-ep">E5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL ARCHITECTURE -->
+<section class="arch-section">
+  <div class="section-inner">
+    <div class="section-label">MODEL ARCHITECTURE</div>
+    <h2 class="section-title">How the AI Works</h2>
+    <div class="arch-flow">
+      <div class="arch-block input">
+        <div class="arch-icon">🖼️</div>
+        <div class="arch-name">Input Layer</div>
+        <div class="arch-detail">224 × 224 × 3 RGB</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-block base">
+        <div class="arch-icon">🧠</div>
+        <div class="arch-name">MobileNetV2</div>
+        <div class="arch-detail">Pre-trained ImageNet weights · Partially frozen</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-block pool">
+        <div class="arch-icon">⚡</div>
+        <div class="arch-name">GlobalAvgPool2D</div>
+        <div class="arch-detail">Spatial → 1D reduction</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-block dense">
+        <div class="arch-icon">🔗</div>
+        <div class="arch-name">Dense Layers</div>
+        <div class="arch-detail">256 neurons · Dropout 0.35 + 0.25</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-block output">
+        <div class="arch-icon">📊</div>
+        <div class="arch-name">Output (Softmax)</div>
+        <div class="arch-detail">38 disease classes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING DETAILS -->
+<section class="training-section">
+  <div class="section-inner">
+    <div class="section-label">TRAINING DETAILS</div>
+    <h2 class="section-title">Model Training Pipeline</h2>
+    <div class="training-grid">
+      <div class="training-card">
+        <div class="tc-icon">📦</div>
+        <h3>Dataset</h3>
+        <ul>
+          <li>87,000+ augmented JPEG images</li>
+          <li>38 classes · 14 crop types</li>
+          <li>256×256px → resized to 224×224</li>
+          <li>80% train / 20% validation split</li>
+        </ul>
+      </div>
+      <div class="training-card">
+        <div class="tc-icon">⚙️</div>
+        <h3>Compilation</h3>
+        <ul>
+          <li>Optimizer: Adam (lr = 1e-4)</li>
+          <li>Loss: Categorical Crossentropy</li>
+          <li>Metric: Accuracy</li>
+          <li>Batch size: 32</li>
+        </ul>
+      </div>
+      <div class="training-card">
+        <div class="tc-icon">🛡️</div>
+        <h3>Callbacks</h3>
+        <ul>
+          <li>ModelCheckpoint — saves best model</li>
+          <li>ReduceLROnPlateau — lr ×0.5 after 3 epochs</li>
+          <li>EarlyStopping — stops after 6 epochs no gain</li>
+        </ul>
+      </div>
+      <div class="training-card">
+        <div class="tc-icon">📈</div>
+        <h3>Results</h3>
+        <ul>
+          <li>Train accuracy: ~95%+</li>
+          <li>Val accuracy: 96.6% (peak)</li>
+          <li>No significant overfitting</li>
+          <li>Converged in ~5 epochs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MOBILENETV2 -->
+<section class="why-section">
+  <div class="section-inner">
+    <div class="section-label">TECHNOLOGY</div>
+    <h2 class="section-title">Why MobileNetV2?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🪶</div>
+        <h3>Lightweight</h3>
+        <p>Uses depthwise separable convolutions — far fewer parameters than VGG or ResNet while maintaining competitive accuracy.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔁</div>
+        <h3>Inverted Residuals</h3>
+        <p>Linear bottleneck layers with inverted residual connections allow efficient feature reuse without gradient degradation.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏋️</div>
+        <h3>Pre-trained Weights</h3>
+        <p>Trained on ImageNet with 1,000 classes — enables powerful feature extraction without training from scratch.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <h3>Edge-Ready</h3>
+        <p>Optimized for mobile and embedded systems — ideal for future deployment in farm IoT devices and mobile apps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE PLANS -->
+<section class="future-section">
+  <div class="section-inner">
+    <div class="section-label">ROADMAP</div>
+    <h2 class="section-title">Future Plans</h2>
+    <div class="future-list">
+      <div class="future-item">
+        <div class="future-icon">🌾</div>
+        <div>
+          <h3>Automated Agricultural Monitoring</h3>
+          <p>Integrate with farm monitoring systems for real-time disease classification from captured images, automating alerts and intervention workflows.</p>
+        </div>
+      </div>
+      <div class="future-item">
+        <div class="future-icon">📱</div>
+        <div>
+          <h3>Mobile Application</h3>
+          <p>A dedicated mobile app enabling home gardeners and small farmers to get instant disease analysis by simply taking a photo.</p>
+        </div>
+      </div>
+      <div class="future-item">
+        <div class="future-icon">🎓</div>
+        <div>
+          <h3>Educational Integration</h3>
+          <p>Incorporate the model into agricultural training platforms for practical, hands-on learning in plant pathology.</p>
+        </div>
+      </div>
+      <div class="future-item">
+        <div class="future-icon">🔬</div>
+        <div>
+          <h3>Continuous Improvement</h3>
+          <p>Expand dataset coverage to more diseases and plant species, and further fine-tune the architecture for diverse real-world environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>See it in action</h2>
+    <p>Upload a leaf photo and watch the AI diagnose it in real time.</p>
+    <a href="/upload" class="btn-primary btn-large">Start Detection →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">🌿 PlantCare AI</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/upload">Detect</a>
+      <a href="/health">API Status</a>
+    </div>
+    <div class="footer-credit">Powered by TensorFlow · MobileNetV2 · Flask</div>
+  </div>
+</footer>
+
+</body>
+</html>

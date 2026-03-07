@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Detect Disease — PlantCare AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">🌿 PlantCare <span>AI</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/upload" class="active">Detect Disease</a>
+    </div>
+    <a href="/upload" class="nav-cta">Try Now →</a>
+  </div>
+</nav>
+
+<section class="page-hero small">
+  <div class="page-hero-inner">
+    <div class="section-label">DISEASE DETECTION</div>
+    <h1>Upload a Leaf Image</h1>
+    <p>Supports Apple, Tomato, Potato, Grape, Corn, Pepper, Peach, Strawberry & more.</p>
+    {% if not model_loaded %}
+    <div class="demo-banner">
+      ⚡ <strong>Demo Mode</strong> — No trained model found. Showing example results.
+      Place <code>plantcare_model.h5</code> in <code>saved_models/</code> for real predictions.
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="upload-section-main">
+  <div class="upload-main-inner">
+
+    <!-- Upload card -->
+    <div class="upload-card" id="uploadCard">
+      <div class="upload-zone" id="uploadZone">
+        <div class="uz-icon">🌿</div>
+        <h3>Drop your leaf image here</h3>
+        <p>or click to browse files</p>
+        <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Choose Image</button>
+        <p class="uz-hint">JPG · PNG · WEBP · Max 16MB</p>
+        <input type="file" id="fileInput" accept="image/*" hidden/>
+      </div>
+
+      <div class="preview-zone" id="previewZone" style="display:none;">
+        <div class="preview-img-wrap">
+          <img id="previewImg" src="" alt="Preview"/>
+          <button class="preview-remove" onclick="reset()">✕</button>
+        </div>
+        <div class="preview-meta">
+          <div class="pm-filename" id="pmFilename"></div>
+          <div class="pm-size" id="pmSize"></div>
+          <button class="btn-primary btn-analyze" id="analyzeBtn" onclick="analyze()">
+            🔬 Analyze Plant
+          </button>
+          <button class="btn-ghost btn-sm" onclick="reset()">Change Image</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-zone" id="loadingZone" style="display:none;">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Analyzing leaf…</div>
+      <div class="loader-sub">Running MobileNetV2 inference</div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-zone" id="errorZone" style="display:none;"></div>
+
+    <!-- Tips -->
+    <div class="tips-card">
+      <div class="tips-title">📸 Tips for Best Results</div>
+      <ul class="tips-list">
+        <li>Use a clear, well-lit image of a single leaf</li>
+        <li>Ensure the leaf fills most of the frame</li>
+        <li>Avoid blurry or heavily shadowed images</li>
+        <li>Natural daylight gives the best results</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">🌿 PlantCare AI</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/upload">Detect</a>
+    </div>
+    <div class="footer-credit">Powered by TensorFlow · MobileNetV2 · Flask</div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>
