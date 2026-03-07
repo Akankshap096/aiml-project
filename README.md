@@ -1,6 +1,6 @@
 # **PlantCare AI**
 
-Intelligent Plant Disease Detection using Transfer Learning.
+Intelligent Plant Disease Detection using Transfer Learning and MobileNetV2.
 
 ## **Overview**
 
@@ -168,7 +168,7 @@ PlantCare AI demonstrates how Artificial Intelligence can contribute to smart ag
 
 • Technology-driven farming solutions
 
-## ** Project demo video link : **
+##  Project demo video link : 
 
 https://drive.google.com/file/d/1NrW0mMVwfhjBiZT9n6DXvUJ7PTY7dfgG/view?usp=drivesdk
 
