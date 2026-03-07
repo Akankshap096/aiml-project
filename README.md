@@ -168,6 +168,10 @@ PlantCare AI demonstrates how Artificial Intelligence can contribute to smart ag
 
 • Technology-driven farming solutions
 
+## ** Project demo video link : **
+
+https://drive.google.com/file/d/1NrW0mMVwfhjBiZT9n6DXvUJ7PTY7dfgG/view?usp=drivesdk
+
 ##  Future Plans
 
 - Mobile app for field use
